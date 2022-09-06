@@ -1,4 +1,4 @@
-import { styled, Button } from "@mui/material";
+import { styled } from "@mui/material";
 
 export const HeroWrapper = styled("div")(() => ({
   display: "grid",

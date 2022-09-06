@@ -1,6 +1,6 @@
 import React from "react";
 
-import { AppBar, Typography, Button } from "@mui/material";
+import { AppBar, Typography } from "@mui/material";
 
 import { Navigation, HeaderWrapper } from "../styles/LandingPage/HeaderStyles";
 
