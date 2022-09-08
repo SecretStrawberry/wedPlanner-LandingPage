@@ -43,19 +43,14 @@ const Hero = () => {
           display="flex"
           alignItems="center"
           justifyContent="center"
+          sx={{ overflow: "hidden" }}
         >
           <Box
             component="img"
             src={heroImg}
             alt="wedding couple"
             sx={{
-              width: 600,
-              [theme.breakpoints.down("md")]: {
-                width: 300,
-              },
-              [theme.breakpoints.down("lg")]: {
-                width: 400,
-              },
+              width: "100%",
             }}
           ></Box>
         </Grid>

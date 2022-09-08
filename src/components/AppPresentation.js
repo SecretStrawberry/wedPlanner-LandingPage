@@ -72,7 +72,7 @@ const AppPresentation = () => {
             component="img"
             src={image1}
             alt="wedding cuple"
-            width={300}
+            width="80%"
             sx={{ opacity: "50%" }}
           />
         </Grid>
@@ -137,7 +137,7 @@ const AppPresentation = () => {
             component="img"
             src={image2}
             alt="flowers"
-            width={300}
+            width="80%"
             sx={{ opacity: "50%" }}
           />
         </Grid>
