@@ -1,23 +1,51 @@
 import React from "react";
 
-import { AppBar, Typography } from "@mui/material";
-
-import { Navigation, HeaderWrapper } from "../styles/LandingPage/HeaderStyles";
-
-import { NavButton } from "./Buttons";
+import { AppBar, Grid, Typography, Button } from "@mui/material";
+import theme from "../styles/theme";
 
 const Header = () => {
   return (
     <AppBar elevation={0} position="sticky">
-      <HeaderWrapper>
-        <Typography variant="h1" textAlign="center" color="secondary">
-          In Perpetuum
-        </Typography>
-        <Navigation>
-          <NavButton color="error">Contact</NavButton>
-          <NavButton color="error">About the App</NavButton>
-        </Navigation>
-      </HeaderWrapper>
+      <Grid container rowGap={1} p={2}>
+        <Grid item xs={12}>
+          <Typography variant="h1" textAlign="center" color="secondary">
+            In Perpetuum
+          </Typography>
+        </Grid>
+
+        <Grid
+          item
+          xs={6}
+          md={3}
+          p={0}
+          textAlign="center"
+          borderBottom={`1px solid ${theme.palette.line}`}
+        >
+          <Button color="error" sx={{ fontSize: "1.2rem" }}>
+            Contact
+          </Button>
+        </Grid>
+
+        <Grid
+          item
+          xs={0}
+          md={6}
+          borderBottom={`1px solid ${theme.palette.line}`}
+        ></Grid>
+
+        <Grid
+          item
+          xs={6}
+          md={3}
+          p={0}
+          textAlign="center"
+          borderBottom={`1px solid ${theme.palette.line}`}
+        >
+          <Button color="error" sx={{ fontSize: "1.2rem" }}>
+            About
+          </Button>
+        </Grid>
+      </Grid>
     </AppBar>
   );
 };

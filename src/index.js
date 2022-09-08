@@ -8,7 +8,7 @@ import "./index.css";
 import { CssBaseline } from "@mui/material";
 
 import { ThemeProvider } from "@mui/system";
-import theme from "./styles/LandingPage/theme";
+import theme from "./styles/theme";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
