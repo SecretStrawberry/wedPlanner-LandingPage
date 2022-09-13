@@ -40,7 +40,7 @@ const title = {
   },
 };
 
-const text = "In Perpetuum";
+const text = "Nuptialis";
 
 const Header = () => {
   return (
