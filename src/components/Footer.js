@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { useInView, useAnimation, motion } from "framer-motion";
 
-import { Grid, Button } from "@mui/material";
+import { Grid, Button, Box } from "@mui/material";
 import theme from "../styles/theme";
 
 const Footer = () => {
@@ -22,30 +22,31 @@ const Footer = () => {
       if (!inVeiw) {
         animation.start({
           opacity: 0,
-          x: "-100vh",
+          x: "-100vw",
         });
       }
     }
-    console.log("in viwe", inVeiw);
   }, [inVeiw, animation]);
 
   return (
-    <Grid
+    <Box
       ref={ref}
-      container
-      sx={{
-        backgroundColor: theme.palette.secondary.main,
-        padding: "5rem",
-        marginTop: "4rem",
-      }}
       component={motion.div}
+      animate={animation}
       initial={{
         opacity: 0,
-        x: "-100vh",
+        x: "-100vw",
       }}
-      animate={animation}
     >
-      {/* <Grid item xs={6}>
+      <Grid
+        container
+        sx={{
+          backgroundColor: theme.palette.secondary.main,
+          padding: "5rem",
+          marginTop: "4rem",
+        }}
+      >
+        {/* <Grid item xs={6}>
         <Button color="primary" sx={{ fontSize: "1.4rem" }}>
           Home
         </Button>
@@ -55,20 +56,21 @@ const Footer = () => {
           About
         </Button>
       </Grid> */}
-      <Grid item xs={12} textAlign="center">
-        <Button
-          color="primary"
-          variant="contained"
-          sx={{
-            color: "error.main",
-            fontSize: "2rem",
-            padding: "0 3rem",
-          }}
-        >
-          Contact
-        </Button>
+        <Grid item xs={12} textAlign="center">
+          <Button
+            color="primary"
+            variant="contained"
+            sx={{
+              color: "error.main",
+              fontSize: "2rem",
+              padding: "0 3rem",
+            }}
+          >
+            Contact
+          </Button>
+        </Grid>
       </Grid>
-    </Grid>
+    </Box>
   );
 };
 

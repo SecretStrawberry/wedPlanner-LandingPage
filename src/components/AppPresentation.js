@@ -43,22 +43,6 @@ const addData = (data) => {
   ));
 };
 
-// animations
-
-// const appear = {
-//   hidden: {
-//     opacity: 0,
-//     y: 20,
-//   },
-//   show: {
-//     opacity: 1,
-//     y: 0,
-//     transition: {
-//       duration: 1,
-//     },
-//   },
-// };
-
 const AppPresentation = () => {
   const ref = useRef(null);
   const inVeiw = useInView(ref);
@@ -81,22 +65,20 @@ const AppPresentation = () => {
         });
       }
     }
-    console.log("in viwe", inVeiw);
   }, [inVeiw, animation]);
 
   return (
-    <Container sx={{ marginTop: "10rem" }}>
-      <Grid
-        ref={ref}
-        container
-        minHeight={"100vh"}
-        component={motion.div}
-        initial={{
-          y: "30vh",
-          opacity: 0,
-        }}
-        animate={animation}
-      >
+    <Container
+      sx={{ marginTop: "10rem" }}
+      ref={ref}
+      component={motion.div}
+      initial={{
+        y: "30vh",
+        opacity: 0,
+      }}
+      animate={animation}
+    >
+      <Grid container minHeight={"100vh"}>
         <Grid
           item
           xs={12}
