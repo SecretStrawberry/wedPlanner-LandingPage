@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { Grid, Typography, Container, Box } from "@mui/material";
+
+import { v4 as uuidv4 } from "uuid";
 
 import image1 from "../resources/landingPageImages/toppng.com-welcome-to-our-wedding-699x582.png";
 import image2 from "../resources/landingPageImages/—Pngtree—black hand drawn line side_4980174.png";
@@ -12,6 +14,7 @@ import {
   data6,
 } from "../datafiles/presentattionPart1";
 import theme from "../styles/theme";
+import { motion, useAnimation, useInView } from "framer-motion";
 
 // sx object so I do not write the same code 6 times
 // the object is fed to the sx prop of MUI component
@@ -24,6 +27,7 @@ const sx = {
 };
 
 // helper to add data to DOM from a data file
+
 const addData = (data) => {
   return data.map((data) => (
     <>
@@ -31,10 +35,7 @@ const addData = (data) => {
         {data.title}
       </Typography>
       {data.lines.map((line, index) => (
-        <Typography
-          varinat="body"
-          key={index + Math.floor(Math.random() * 100) / 321}
-        >
+        <Typography varinat="body" key={uuidv4()}>
           {line}
         </Typography>
       ))}
@@ -42,14 +43,64 @@ const addData = (data) => {
   ));
 };
 
+// animations
+
+// const appear = {
+//   hidden: {
+//     opacity: 0,
+//     y: 20,
+//   },
+//   show: {
+//     opacity: 1,
+//     y: 0,
+//     transition: {
+//       duration: 1,
+//     },
+//   },
+// };
+
 const AppPresentation = () => {
+  const ref = useRef(null);
+  const inVeiw = useInView(ref);
+  const animation = useAnimation();
+
+  useEffect(() => {
+    if (inVeiw) {
+      animation.start({
+        opacity: 1,
+        y: 0,
+        transition: {
+          type: "spring",
+          duration: 1,
+        },
+      });
+      if (!inVeiw) {
+        animation.start({
+          opacity: 0,
+          y: "30vh",
+        });
+      }
+    }
+    console.log("in viwe", inVeiw);
+  }, [inVeiw, animation]);
+
   return (
     <Container sx={{ marginTop: "10rem" }}>
-      <Grid container minHeight={"100vh"}>
+      <Grid
+        ref={ref}
+        container
+        minHeight={"100vh"}
+        component={motion.div}
+        initial={{
+          y: "30vh",
+          opacity: 0,
+        }}
+        animate={animation}
+      >
         <Grid
           item
           xs={12}
-          md={3}
+          md={4}
           display="flex"
           flexDirection="column"
           alignItems="flex-start"
@@ -61,7 +112,7 @@ const AppPresentation = () => {
         <Grid
           item
           xs={12}
-          md={6}
+          md={4}
           display="flex"
           flexDirection="column"
           alignItems="center"
@@ -72,14 +123,14 @@ const AppPresentation = () => {
             component="img"
             src={image1}
             alt="wedding cuple"
-            width="80%"
+            width="100%"
             sx={{ opacity: "50%" }}
           />
         </Grid>
         <Grid
           item
           xs={12}
-          md={3}
+          md={4}
           display="flex"
           flexDirection="column"
           alignItems="flex-end"
@@ -101,6 +152,7 @@ const AppPresentation = () => {
         </Grid>
 
         <Grid item xs={12} height={100}></Grid>
+
         <Grid
           item
           xs={12}
@@ -115,7 +167,7 @@ const AppPresentation = () => {
         <Grid
           item
           xs={12}
-          md={3}
+          md={4}
           display="flex"
           flexDirection="column"
           alignItems="flex-start"
@@ -127,7 +179,7 @@ const AppPresentation = () => {
         <Grid
           item
           xs={12}
-          md={6}
+          md={4}
           display="flex"
           flexDirection="column"
           alignItems="center"
@@ -137,14 +189,14 @@ const AppPresentation = () => {
             component="img"
             src={image2}
             alt="flowers"
-            width="80%"
+            width="100%"
             sx={{ opacity: "50%" }}
           />
         </Grid>
         <Grid
           item
           xs={12}
-          md={3}
+          md={4}
           display="flex"
           flexDirection="column"
           alignItems="flex-end"

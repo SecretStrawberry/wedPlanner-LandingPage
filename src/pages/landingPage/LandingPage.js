@@ -8,7 +8,9 @@ import theme from "../../styles/theme";
 
 const LandingPage = () => {
   return (
-    <Box sx={{ backgroundColor: theme.palette.primary.main }}>
+    <Box
+      sx={{ backgroundColor: theme.palette.primary.main, overflow: "hidden" }}
+    >
       <Header />
       <Hero />
       <AppPresentation />

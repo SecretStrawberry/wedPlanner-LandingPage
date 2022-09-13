@@ -6,7 +6,6 @@ import theme from "../styles/theme";
 import { motion } from "framer-motion";
 
 // animation rules
-
 const appbar = {
   hidden: {
     opacity: 0,
